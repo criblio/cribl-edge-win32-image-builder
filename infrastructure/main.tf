@@ -88,6 +88,11 @@ resource "aws_iam_role" "github_actions" {
           Resource = [
             aws_ecr_repository.edge-windows.arn,
           ]
+        },
+        {
+          Action: ["ecr:GetAuthorizationToken"],
+          Effect = "Allow",
+          Resource = "*"
         }
       ]
     })
